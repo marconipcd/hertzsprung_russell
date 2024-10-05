@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelos de Diagramas H-R</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #525252
+    }
+    .container {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto;
+      background-color: #101010
+    }
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding: 10px;
+      background-color: #2b2b2b;
+    }
+    .carousel-item {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-item img {
+      max-width: 124px;
+      height: auto;
+    }
+    .carousel-item p {
+      margin: 0;
+      font-size: 12px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    .image-container {
+      position: relative;
+      padding-left: 10px;
+      padding-right: 10px;
+      
+      padding-top: 10px;
+      overflow: hidden;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: opacity 0.5s ease-in-out;
+      border: 2px solid #2b2b2b;
+      display: block;
+    }
+    .image-container img.active {
+      opacity: 1;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 style="font-size: 2.4em; color: #fff;font-weight: bold; font-family: monospace;">Hertzsprung-Russell</h1>
+    
+    <div class="carousel-container">
+      <div class="carousel-item" onclick="showImage(0)">
+        <img src="icons/icon_rocket5.png">
+      </div>
+      <div class="carousel-item" onclick="showImage(1)">
+        <img src="icons/icon_rocket4.png">
+      </div>
+      <div class="carousel-item" onclick="showImage(2)">
+        <img src="icons/icon_rocket3.png">
+      </div>
+      <div class="carousel-item" onclick="showImage(3)">
+        <img src="icons/icon_rocket2.png">
+      </div>
+      <div class="carousel-item" onclick="showImage(4)">
+        <img src="icons/icon_rocket1.png">
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img id="model0" src="imagens/modelo1.webp" class="active" alt="Diagrama Original">
+      <img id="model1" src="imagens/modelo2.webp" alt="Variação 1">
+      <img id="model2" src="imagens/modelo3.webp" alt="Variação 2">
+      <img id="model3" src="imagens/modelo4.webp" alt="Variação 3">
+      <img id="model4" src="imagens/modelo5.webp" alt="Variação 4">
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const images = document.querySelectorAll('.image-container img');
+      images.forEach((img, i) => {
+        if (i === index) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+      currentIndex = index;
+    }
+
+    
+  </script>
+
+</body>
+</html>
