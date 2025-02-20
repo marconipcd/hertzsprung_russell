@@ -45,70 +45,173 @@
       font-weight: bold;
       color: #007BFF;
     }
+
+    .carousel-container div.active{
+      border: 1px solid #ffd400;
+      color: #fff;
+      font-size: 1.2em;
+      padding: 1em;
+    }
     .image-container {
       position: relative;
       padding-left: 10px;
       padding-right: 10px;
-      
+      align-items: center; /* Centraliza verticalmente */
       padding-top: 10px;
       overflow: hidden;
+      height: 370px;
+      display: flex;
     }
     .image-container img {
       max-width: 100%;
       height: auto;
       opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      position: absolute;     
       transition: opacity 0.5s ease-in-out;
       border: 2px solid #2b2b2b;
-      display: block;
+      
     }
     .image-container img.active {
       opacity: 1;
       position: relative;
     }
+
+    .container-tab div.tab{
+      display: none;
+    }
+    .container-tab div.active{
+      display: block;
+    }
+
+    .tab-menu{
+      cursor: pointer;
+      margin: 0 10px;
+      border-bottom: 2px solid #fff;
+      height: 30px;
+    }
+    .tab-menu span{
+          background-color: #fff;
+          margin: 0 3px;
+          padding: 10px;
+          font-size: 1.2em;
+          /* width: 98px; */
+          /* display: block; */
+          border-radius: 5px 5px 0 0;
+    }
+
+    .tab-menu span.active{
+        color: #000000;
+        font-weight: bold;
+    }
+    h2{
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1 style="font-size: 2.4em; color: #fff;font-weight: bold; font-family: monospace;">Hertzsprung-Russell</h1>
-    
-    <div class="carousel-container">
-      <div class="carousel-item" onclick="showImage(0)">
-        <img src="icons/icon_rocket5.png">
+  <h1 style="width: 100%;
+    text-align: center; font-size: 2.4em; color: #fff;font-weight: bold; font-family: monospace;">Hertzsprung-Russell</h1>
+
+  <div class="container-tab">
+
+
+    <div class="tab-menu">
+      <span class="active" onclick="showTab(0)">Diagrama UM</span>
+      <span onclick="showTab(1)">Diagrama DOIS</span>
+    </div>
+  
+    <div class="container tab tab1 active">      
+      <div class="image-container img_container_tab1">
+        <img id="model0" src="imagens/diagrama_completo.png" class="active" alt="Diagrama Completo">
+        <img id="model1" src="imagens/diagrama_completo_por_luminosidade.png" alt="Diagrama por Luminosidade">
+        <img id="model2" src="imagens/diagrama_super_gigantes.png" alt="Super Gigantes">
+        <img id="model3" src="imagens/diagrama_gigantes.png" alt="Gigantes">
+        <img id="model4" src="imagens/diagrama_anas_branca.png" alt="Anãs Branca">
+        <img id="model4" src="imagens/diagrama_sequencia.png" alt="Sequência">
       </div>
-      <div class="carousel-item" onclick="showImage(1)">
-        <img src="icons/icon_rocket4.png">
-      </div>
-      <div class="carousel-item" onclick="showImage(2)">
-        <img src="icons/icon_rocket3.png">
-      </div>
-      <div class="carousel-item" onclick="showImage(3)">
-        <img src="icons/icon_rocket2.png">
-      </div>
-      <div class="carousel-item" onclick="showImage(4)">
-        <img src="icons/icon_rocket1.png">
+
+      <h2 style="margin-top: 0.2em;
+      color: #fff;">Opções de visualização</h2>
+      <div class="carousel-container carousel-container_tab1">
+        <div class="carousel-item active" onclick="showImage(0)">
+          Visão Geral Diagrama
+        </div>
+        <div class="carousel-item" onclick="showImage(1)">
+        Diagrama por Luminosidade
+        </div>
+        <div class="carousel-item" onclick="showImage(2)">
+          Super Gigantes
+        </div>
+        <div class="carousel-item" onclick="showImage(3)">
+          Gigantes
+        </div>
+        <div class="carousel-item" onclick="showImage(4)">
+        Anãs Branca
+        </div>
+        <div class="carousel-item" onclick="showImage(5)">
+        Sequência
+        </div>
       </div>
     </div>
+    
+    <div class="container tab tab2">
+     
+      <div class="image-container img_container_tab2">
+        <img id="model0" src="imagens/diagrama_dois/classe_o.png" class="active" alt="Diagrama Completo">
+        <img id="model1" src="imagens/diagrama_dois/classe_b.png" alt="Diagrama por Luminosidade">
+        <img id="model2" src="imagens/diagrama_dois/classe_a.png" alt="Super Gigantes">
+        <img id="model3" src="imagens/diagrama_dois/classe_f.png" alt="Gigantes">
+        <img id="model4" src="imagens/diagrama_dois/classe_g.png" alt="Anãs Branca">
+        <img id="model5" src="imagens/diagrama_dois/classe_k.png" alt="Sequência">
+        <img id="model6" src="imagens/diagrama_dois/classe_m.png" alt="Sequência">
+        <img id="model7" src="imagens/diagrama_dois/classe_m.png" alt="Sequência">
+        <img id="model8" src="imagens/diagrama_dois/classe_m.png" alt="Sequência">
+      </div>
 
-    <div class="image-container">
-      <img id="model0" src="imagens/modelo1.webp" class="active" alt="Diagrama Original">
-      <img id="model1" src="imagens/modelo2.webp" alt="Variação 1">
-      <img id="model2" src="imagens/modelo3.webp" alt="Variação 2">
-      <img id="model3" src="imagens/modelo4.webp" alt="Variação 3">
-      <img id="model4" src="imagens/modelo5.webp" alt="Variação 4">
+      <h2 style="margin-top: 0.2em;
+      color: #fff;">Temperatura/Classes Espectrais</h2>
+      <div class="carousel-container carousel-container_tab2">
+        <div class="carousel-item active" onclick="showImage2(0)">
+          (O) > 25,000
+        </div>
+        <div class="carousel-item" onclick="showImage2(1)">
+          (B) 11,000-25,000
+        </div>
+        <div class="carousel-item" onclick="showImage2(2)">
+          (A) 7,500-11,000
+        </div>
+        <div class="carousel-item" onclick="showImage2(3)">
+          (F) 6,000-7,5000
+        </div>
+        <div class="carousel-item" onclick="showImage2(4)">
+          (G) 5,000-6,000
+        </div>        
+        <div class="carousel-item" onclick="showImage2(5)">
+          (K) 3,5000-5,000
+        </div>
+        <div class="carousel-item" onclick="showImage2(6)">
+          (K) 3,5000-5,000
+        </div>
+        <div class="carousel-item" onclick="showImage2(7)">
+          (M) 2,2000-3,500
+        </div>
+        <div class="carousel-item" onclick="showImage2(8)">
+          (L) 1,6000-2,200
+        </div>
+        <div class="carousel-item" onclick="showImage2(9)">
+          (T) < 1,600
+        </div>
+      </div>
     </div>
   </div>
+
 
   <script>
     let currentIndex = 0;
 
     function showImage(index) {
-      const images = document.querySelectorAll('.image-container img');
+      const images = document.querySelectorAll('.img_container_tab1 img');
       images.forEach((img, i) => {
         if (i === index) {
           img.classList.add('active');
@@ -117,6 +220,62 @@
         }
       });
       currentIndex = index;
+
+      const divs = document.querySelectorAll('.carousel-container_tab1 div');
+      divs.forEach((div, i) => {
+        if(i === index){
+          div.classList.add('active');
+        } else {
+          div.classList.remove('active');
+        }
+      });
+
+    }
+
+    function showImage2(index) {
+      const images = document.querySelectorAll('.img_container_tab2 img');
+      images.forEach((img, i) => {
+        if (i === index) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+      currentIndex = index;
+
+      const divs = document.querySelectorAll('.carousel-container_tab2 div');
+      divs.forEach((div, i) => {
+        if(i === index){
+          div.classList.add('active');
+        } else {
+          div.classList.remove('active');
+        }
+      });
+
+    }
+
+    function showTab(index){
+      const divs = document.querySelectorAll('.tab-menu span');
+      divs.forEach((span, i) => {
+        if(i === index){
+          span.classList.add('active');
+        } else {
+          span.classList.remove('active');
+        }
+      });
+
+      const divs2 = document.querySelectorAll('.container-tab div.tab');
+      divs2.forEach((div, i) => {
+        if(i === index){
+          div.classList.add('active');
+        } else {
+          div.classList.remove('active');
+        }
+      });
+
+      
+
+
     }
 
     
