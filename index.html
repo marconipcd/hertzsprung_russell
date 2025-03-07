@@ -128,14 +128,14 @@
 
 
     <div class="tab-menu">
-      <span class="active" onclick="showTab(0)">Diagrama UM</span>
-      <span onclick="showTab(1)">Diagrama DOIS</span>
+      <span class="active" onclick="showTab(0)">Comparativo</span>
+      <span onclick="showTab(1)">Ciclo de Vida Estelar</span>
+      <span onclick="showTab(2)">Temperatura</span>
     </div>
   
     <div class="container tab tab1 active">      
-      <div class="image-container img_container_tab1">
-        <img id="model0" src="imagens/diagrama_completo.png" class="active" alt="Diagrama Completo">
-        <img id="model1" src="imagens/diagrama_completo_por_luminosidade.png" alt="Diagrama por Luminosidade">
+      <div class="image-container img_container_tab1">        
+        <img id="model1" src="imagens/diagrama_completo_por_luminosidade.png" class="active" alt="Diagrama por Luminosidade">
         <img id="model2" src="imagens/diagrama_super_gigantes.png" alt="Super Gigantes">
         <img id="model3" src="imagens/diagrama_gigantes.png" alt="Gigantes">
         <img id="model4" src="imagens/diagrama_anas_branca.png" alt="Anãs Branca">
@@ -145,22 +145,20 @@
       <h2 style="margin-top: 0.2em;
       color: #fff;">Opções de visualização</h2>
       <div class="carousel-container carousel-container_tab1">
+       
         <div class="carousel-item active" onclick="showImage(0)">
-          Visão Geral Diagrama
+       Luminosidade
         </div>
         <div class="carousel-item" onclick="showImage(1)">
-        Diagrama por Luminosidade
-        </div>
-        <div class="carousel-item" onclick="showImage(2)">
           Super Gigantes
         </div>
-        <div class="carousel-item" onclick="showImage(3)">
+        <div class="carousel-item" onclick="showImage(2)">
           Gigantes
         </div>
-        <div class="carousel-item" onclick="showImage(4)">
+        <div class="carousel-item" onclick="showImage(3)">
         Anãs Branca
         </div>
-        <div class="carousel-item" onclick="showImage(5)">
+        <div class="carousel-item" onclick="showImage(4)">
         Sequência
         </div>
       </div>
@@ -169,6 +167,22 @@
     <div class="container tab tab2">
      
       <div class="image-container img_container_tab2">
+        <img id="model0" src="imagens/ciclo_de_vida_estelar.png" class="active" alt="Diagrama Completo">
+      
+      </div>
+
+      <h2 style="margin-top: 0.2em;
+      color: #fff;">Ciclo</h2>
+      <div class="carousel-container carousel-container_tab2">
+        <div class="carousel-item active" onclick="showImage2(0)">
+          0
+        </div>        
+      </div>
+    </div>
+
+    <div class="container tab tab3">
+     
+      <div class="image-container img_container_tab3">
         <img id="model0" src="imagens/diagrama_dois/classe_o.png" class="active" alt="Diagrama Completo">
         <img id="model1" src="imagens/diagrama_dois/classe_b.png" alt="Diagrama por Luminosidade">
         <img id="model2" src="imagens/diagrama_dois/classe_a.png" alt="Super Gigantes">
@@ -182,35 +196,35 @@
 
       <h2 style="margin-top: 0.2em;
       color: #fff;">Temperatura/Classes Espectrais</h2>
-      <div class="carousel-container carousel-container_tab2">
+      <div class="carousel-container carousel-container_tab3">
         <div class="carousel-item active" onclick="showImage2(0)">
           (O) > 25,000
         </div>
-        <div class="carousel-item" onclick="showImage2(1)">
+        <div class="carousel-item" onclick="showImage3(1)">
           (B) 11,000-25,000
         </div>
-        <div class="carousel-item" onclick="showImage2(2)">
+        <div class="carousel-item" onclick="showImage3(2)">
           (A) 7,500-11,000
         </div>
-        <div class="carousel-item" onclick="showImage2(3)">
+        <div class="carousel-item" onclick="showImage3(3)">
           (F) 6,000-7,5000
         </div>
-        <div class="carousel-item" onclick="showImage2(4)">
+        <div class="carousel-item" onclick="showImage3(4)">
           (G) 5,000-6,000
         </div>        
-        <div class="carousel-item" onclick="showImage2(5)">
+        <div class="carousel-item" onclick="showImage3(5)">
           (K) 3,5000-5,000
         </div>
-        <div class="carousel-item" onclick="showImage2(6)">
+        <div class="carousel-item" onclick="showImage3(6)">
           (K) 3,5000-5,000
         </div>
-        <div class="carousel-item" onclick="showImage2(7)">
+        <div class="carousel-item" onclick="showImage3(7)">
           (M) 2,2000-3,500
         </div>
-        <div class="carousel-item" onclick="showImage2(8)">
+        <div class="carousel-item" onclick="showImage3(8)">
           (L) 1,6000-2,200
         </div>
-        <div class="carousel-item" onclick="showImage2(9)">
+        <div class="carousel-item" onclick="showImage3(9)">
           (T) < 1,600
         </div>
       </div>
@@ -255,6 +269,28 @@
       currentIndex = index;
 
       const divs = document.querySelectorAll('.carousel-container_tab2 div');
+      divs.forEach((div, i) => {
+        if(i === index){
+          div.classList.add('active');
+        } else {
+          div.classList.remove('active');
+        }
+      });
+
+    }
+
+    function showImage3(index) {
+      const images = document.querySelectorAll('.img_container_tab3 img');
+      images.forEach((img, i) => {
+        if (i === index) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+      currentIndex = index;
+
+      const divs = document.querySelectorAll('.carousel-container_tab3 div');
       divs.forEach((div, i) => {
         if(i === index){
           div.classList.add('active');
