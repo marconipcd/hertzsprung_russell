@@ -1,0 +1,190 @@
+body {
+    background-image: url(https://zenite.nu/wp-content/uploads/stars.jpg);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-attachment: fixed;
+}
+
+/* Estilo da barra de navegação */
+
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+
+main p{
+    color: #fff;
+    text-align: justify;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+main h1{
+    color: #fff;
+    padding: 2px 10px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+main img{
+    width: 100%;
+}
+
+.main-nav {
+    background-color: #0d1a2f; /* Cor de fundo similar à imagem */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative; /* Necessário para o posicionamento do menu hambúrguer */
+}
+
+.main-nav .logo a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.main-nav .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .nav-list li {
+    position: relative; /* Para dropdowns */
+}
+
+.main-nav .nav-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav .nav-list li a:hover {
+    background-color: #1a345e; /* Cor de hover ligeiramente mais clara */
+}
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a345e; /* Cor de fundo do dropdown */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden; /* Garante que o raio da borda seja aplicado corretamente */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #2b4f8d; /* Cor de hover para itens do dropdown */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Menu Hambúrguer (Oculto por padrão em telas grandes) */
+.hamburger-menu {
+    display: none; /* Oculto por padrão */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* Garante que fique por cima de outros elementos */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de rotação do hambúrguer quando ativo */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Responsividade - Media Queries */
+@media (max-width: 1200px) {
+    .main-nav .nav-list {
+        display: none; /* Esconde a lista de navegação por padrão em telas menores */
+        flex-direction: column;
+        width: 100%;
+        background-color: #0d1a2f; /* Mesmo fundo do nav */
+        position: absolute;
+        top: 100%; /* Abaixo do nav bar */
+        left: 0;
+        text-align: center;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .main-nav .nav-list.active {
+        display: flex; /* Mostra a lista quando o menu hambúrguer está ativo */
+    }
+
+    .main-nav .nav-list li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador para itens do menu */
+    }
+
+    .main-nav .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .main-nav .nav-list li a {
+        padding: 15px 20px;
+    }
+
+    .main-nav .hamburger-menu {
+        display: block; /* Mostra o menu hambúrguer em telas menores */
+    }
+
+    /* Ajustes para dropdown em modo hambúrguer */
+    .dropdown .dropdown-content {
+        position: static; /* Remove o posicionamento absoluto em telas menores */
+        display: none; /* Oculta o dropdown por padrão */
+        background-color: #2b4f8d; /* Fundo diferente para diferenciar */
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block; /* Mostra o dropdown quando a opção principal está ativa */
+    }
+    
+    .dropdown-content a {
+        padding-left: 40px; /* Indentação para sub-itens */
+    }
+}
